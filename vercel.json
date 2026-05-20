@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/tankbuch/:path*",
+      "destination": "https://tankbuch-jet.vercel.app/:path*"
+    },
+    {
+      "source": "/karteikarten/:path*",
+      "destination": "https://karteikarten-manager.vercel.app/:path*"
+    }
+  ]
+}
