@@ -5,7 +5,7 @@
       "destination": "https://tankbuch-jet.vercel.app/:path*"
     },
     {
-      "source": "/karteikarten/:path*",
+      "source": "/KM/:path*",
       "destination": "https://karteikarten-manager.vercel.app/:path*"
     }
   ]
