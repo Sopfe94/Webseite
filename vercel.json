@@ -5,6 +5,14 @@
       "destination": "https://tankbuch-jet.vercel.app/:path*"
     },
     {
+      "source": "/KM",
+      "destination": "https://karteikarten-manager.vercel.app/index.html"
+    },
+    {
+      "source": "/KM/",
+      "destination": "https://karteikarten-manager.vercel.app/index.html"
+    },
+    {
       "source": "/KM/:path*",
       "destination": "https://karteikarten-manager.vercel.app/:path*"
     }
