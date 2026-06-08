@@ -1,16 +1,11 @@
 {
   "rewrites": [
-    {
-      "source": "/tb/:path*",
-      "destination": "https://tankbuch-jet.vercel.app/:path*"
-    },
-    {
-      "source": "/api/:path*",
-      "destination": "https://tankbuch-jet.vercel.app/api/:path*"
-    },
-    {
-      "source": "/km/:path*",
-      "destination": "https://karteikarten-manager.vercel.app/:path*"
-    }
+    { "source": "/tb", "destination": "https://tankbuch-jet.vercel.app/" },
+    { "source": "/tb/", "destination": "https://tankbuch-jet.vercel.app/" },
+    { "source": "/tb/:path+", "destination": "https://tankbuch-jet.vercel.app/:path+" },
+    { "source": "/api/:path*", "destination": "https://tankbuch-jet.vercel.app/api/:path*" },
+    { "source": "/km", "destination": "https://karteikarten-manager.vercel.app/" },
+    { "source": "/km/", "destination": "https://karteikarten-manager.vercel.app/" },
+    { "source": "/km/:path+", "destination": "https://karteikarten-manager.vercel.app/:path+" }
   ]
 }
