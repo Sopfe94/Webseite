@@ -1,4 +1,9 @@
 {
+  "redirects": [
+    { "source": "/km", "destination": "/lernpuls", "permanent": true },
+    { "source": "/km/", "destination": "/lernpuls/", "permanent": true },
+    { "source": "/km/:path+", "destination": "/lernpuls/:path+", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/tb", "destination": "https://tankbuch-jet.vercel.app/" },
     { "source": "/tb/", "destination": "https://tankbuch-jet.vercel.app/" },
@@ -7,8 +12,8 @@
     { "source": "/tb-beta/", "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/" },
     { "source": "/tb-beta/:path+", "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/:path+" },
     { "source": "/api/:path*", "destination": "https://tankbuch-jet.vercel.app/api/:path*" },
-    { "source": "/km", "destination": "https://karteikarten-manager.vercel.app/" },
-    { "source": "/km/", "destination": "https://karteikarten-manager.vercel.app/" },
-    { "source": "/km/:path+", "destination": "https://karteikarten-manager.vercel.app/:path+" }
+    { "source": "/lernpuls", "destination": "https://karteikarten-manager.vercel.app/" },
+    { "source": "/lernpuls/", "destination": "https://karteikarten-manager.vercel.app/" },
+    { "source": "/lernpuls/:path+", "destination": "https://karteikarten-manager.vercel.app/:path+" }
   ]
 }
