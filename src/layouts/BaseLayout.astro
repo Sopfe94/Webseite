@@ -90,8 +90,8 @@ const lpLinks = [
     <div class="glow-field"></div>
 
     {showBackHome && (
-      <div class="container">
-        <header class="site-header">
+      <header class="site-header">
+        <div class="container site-header-inner">
           <a class="back-home" href="/">
             <span aria-hidden="true">←</span> Alle Apps
           </a>
@@ -105,22 +105,22 @@ const lpLinks = [
               <a class="btn btn-outline btn-sm" href="/lernpuls">Login</a>
             </div>
           )}
-        </header>
-      </div>
+        </div>
+      </header>
     )}
 
     <main>
       <slot />
     </main>
 
-    <div class="container">
-      <footer class="site-footer">
+    <footer class="site-footer">
+      <div class="container site-footer-inner">
         <span>© 2026 Groß Apps</span>
         <nav>
           <a href="/impressum">Impressum</a>
           <a href="/datenschutz">Datenschutz</a>
         </nav>
-      </footer>
-    </div>
+      </div>
+    </footer>
   </body>
 </html>

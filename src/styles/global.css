@@ -270,11 +270,14 @@ a { color: inherit; }
 .site-header {
   position: relative;
   z-index: 1;
+  width: 100%;
+}
+.site-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  padding: var(--space-6) 0;
+  padding: var(--space-6) var(--space-6);
 }
 .site-header .back-home {
   display: inline-flex;
@@ -312,9 +315,12 @@ a { color: inherit; }
 .site-footer {
   position: relative;
   z-index: 1;
+  width: 100%;
   margin-top: var(--space-16);
-  padding: var(--space-6) 0 var(--space-10);
   border-top: 1px solid var(--border-default);
+}
+.site-footer-inner {
+  padding: var(--space-6) var(--space-6) var(--space-10);
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4) var(--space-6);
