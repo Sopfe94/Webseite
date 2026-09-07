@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Impressum – Groß Apps" description="Impressum von Groß Apps.">
+  <div class="container legal">
+    <h1>Impressum</h1>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <address>
+      Sophie Groß<br />
+      Bahnhofstraße 43<br />
+      46414 Rhede<br />
+      Deutschland
+    </address>
+
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:info@gross-apps.de">info@gross-apps.de</a></p>
+
+    <h2>Hinweis zur gewerblichen Tätigkeit</h2>
+    <p>Dieses Angebot wird als Privatperson ohne eingetragenes Gewerbe betrieben.</p>
+
+    <hr />
+
+    <h2>Haftung für Inhalte</h2>
+    <p>
+      Als Dienstanbieterin bin ich gemäß § 7 Abs. 1 TMG/DDG für eigene Inhalte auf diesen Seiten
+      nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG/DDG bin ich als
+      Dienstanbieterin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+      Informationen zu überwachen oder nach Umständen zu forschen, die auf eine
+      rechtswidrige Tätigkeit hinweisen.
+    </p>
+
+    <h2>Haftung für Links</h2>
+    <p>
+      Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen
+      Einfluss habe. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+      oder Betreiber der Seiten verantwortlich.
+    </p>
+
+    <h2>Urheberrecht</h2>
+    <p>
+      Die durch die Seitenbetreiberin erstellten Inhalte und Werke auf diesen Seiten
+      unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung
+      und jede Art der Verwertung außerhalb der Grenzen des Urheberrechts bedürfen der
+      schriftlichen Zustimmung der jeweiligen Autorin.
+    </p>
+
+    <p class="stand">Platzhaltertext – wird durch die IT-Recht Kanzlei-Version ersetzt.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    position: relative;
+    z-index: 1;
+    max-width: 68ch;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-16);
+  }
+  .legal h1 { font-size: var(--text-3xl); margin-bottom: var(--space-8); }
+  .legal h2 { font-size: var(--text-lg); margin-top: var(--space-8); margin-bottom: var(--space-3); }
+  .legal p, .legal address { color: var(--text-muted); line-height: var(--lh-relaxed); font-style: normal; }
+  .legal a { color: var(--color-violet-light); }
+  .legal hr { border: none; border-top: 1px solid var(--border-default); margin: var(--space-8) 0; }
+  .legal .stand { margin-top: var(--space-8); font-size: var(--text-xs); color: var(--text-muted-2); }
+</style>

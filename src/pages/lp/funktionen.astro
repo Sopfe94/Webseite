@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Funktionen – Lernpuls"
+  description="Alle Funktionen von Lernpuls: Karteikarten, Lernempfehlungen und Learnspace."
+  lpNav
+  activePath="/lp/funktionen"
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">FUNKTIONEN</p>
+      <h1>Was <span class="accent">Lernpuls</span> heute schon kann.</h1>
+    </header>
+
+    <section id="karteikarten" class="feature-block">
+      <div class="feature-text">
+        <span class="badge">Kern-Feature</span>
+        <h2>Karteikarten-Verwaltung</h2>
+        <p>
+          Karteikarten anlegen, in Stapeln organisieren und in Ordnern strukturieren.
+          Jeder Stapel zeigt dir auf einen Blick, wo du stehst – über drei Fortschritts-Zustände:
+        </p>
+        <ul class="status-list">
+          <li><span class="dot"></span> Angefangen</li>
+          <li><span class="dot"></span> Weiter so</li>
+          <li><span class="dot"></span> Fast geschafft</li>
+        </ul>
+      </div>
+      <div class="feature-visual card">
+        <div class="mock-progress">
+          <div class="mock-progress-fill"></div>
+        </div>
+        <span class="mock-label">72% – FAST GESCHAFFT</span>
+      </div>
+    </section>
+
+    <section id="arbeiten" class="feature-block reverse">
+      <div class="feature-text">
+        <span class="badge">Lernempfehlungen</span>
+        <h2>Arbeiten &amp; Aufgaben</h2>
+        <p>
+          Trag deine anstehenden Klausuren und Arbeiten ein. Lernpuls verknüpft sie mit deinen
+          Karteikarten-Stapeln und schlägt vor, welche Stapel du dir vor welchem Termin nochmal
+          anschauen solltest.
+        </p>
+      </div>
+      <div class="feature-visual card">
+        <span class="mock-tag">Mathe – Klausur in 4 Tagen</span>
+        <span class="mock-hint">Empfehlung: Stapel "Integralrechnung" wiederholen</span>
+      </div>
+    </section>
+
+    <section id="learnspace" class="feature-block">
+      <div class="feature-text">
+        <span class="badge">Zusammen lernen</span>
+        <h2>Learnspace</h2>
+        <p>
+          Freundschaften schließen, Lerngruppen gründen und im Chat austauschen. Lernpuls ist
+          nicht nur für den stillen Moment allein gedacht, sondern auch für Lerngruppen, die
+          sich gegenseitig pushen.
+        </p>
+      </div>
+      <div class="feature-visual card">
+        <span class="mock-chat">💬 "Wer ist heute Abend online zum gemeinsam Lernen?"</span>
+      </div>
+    </section>
+
+    <p class="note">
+      Weitere Funktionen (u.a. ein KI-gestützter Lernbereich) sind in Entwicklung und folgen,
+      sobald sie live sind.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { position: relative; z-index: 1; padding: var(--space-10) 0 var(--space-6); max-width: 50ch; }
+  .page-head h1 { font-size: clamp(28px, 4vw, var(--text-3xl)); margin-top: var(--space-3); }
+
+  .feature-block {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: var(--space-10);
+    align-items: center;
+    padding: var(--space-10) 0;
+    border-top: 1px solid var(--border-default);
+  }
+  .feature-block.reverse .feature-visual { order: -1; }
+  .feature-text h2 { font-size: var(--text-2xl); margin: var(--space-3) 0 var(--space-4); }
+  .feature-text p { color: var(--text-muted); line-height: var(--lh-relaxed); }
+
+  .status-list { list-style: none; padding: 0; margin: var(--space-5) 0 0; display: flex; flex-direction: column; gap: var(--space-2); }
+  .status-list li { display: flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--color-violet-light); }
+  .status-list .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-violet-light); }
+
+  .feature-visual { display: flex; flex-direction: column; gap: var(--space-4); min-height: 140px; justify-content: center; }
+  .mock-progress { height: 6px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); overflow: hidden; }
+  .mock-progress-fill { width: 72%; height: 100%; background: var(--gradient-brand); border-radius: var(--radius-full); }
+  .mock-label { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--ls-wide); color: var(--color-violet-light); }
+  .mock-tag { font-size: var(--text-sm); font-weight: var(--fw-semibold); }
+  .mock-hint { font-size: var(--text-sm); color: var(--text-muted); }
+  .mock-chat { font-size: var(--text-sm); color: var(--text-muted); }
+
+  .note { position: relative; z-index: 1; padding: var(--space-8) 0 var(--space-16); font-size: var(--text-sm); color: var(--text-muted-2); }
+
+  @media (max-width: 720px) {
+    .feature-block, .feature-block.reverse { grid-template-columns: 1fr; }
+    .feature-block.reverse .feature-visual { order: 0; }
+  }
+</style>

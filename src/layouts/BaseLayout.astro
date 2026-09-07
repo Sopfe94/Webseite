@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  showBackHome?: boolean;
+  lpNav?: boolean;
+  activePath?: string;
+}
+
+const { title, description, showBackHome = true, lpNav = false, activePath = '' } = Astro.props;
+
+const lpLinks = [
+  { href: '/lp', label: 'Übersicht' },
+  { href: '/lp/funktionen', label: 'Funktionen' },
+  { href: '/lp/screenshots', label: 'Screenshots' },
+  { href: '/lp/preise', label: 'Preise' },
+  { href: '/lp/faq', label: 'FAQ' },
+  { href: '/lp/mission', label: 'Mission' },
+  { href: '/lp/kontakt', label: 'Kontakt' },
+];
+---
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="/images/lernpuls-icon.png" />
+  </head>
+  <body>
+    <div class="glow-field"></div>
+
+    {showBackHome && (
+      <div class="container">
+        <header class="site-header">
+          <a class="back-home" href="/">
+            <span aria-hidden="true">←</span> Alle Apps
+          </a>
+          {lpNav && (
+            <div class="site-header-right">
+              <nav class="site-nav" aria-label="Lernpuls Unterseiten">
+                {lpLinks.map((link) => (
+                  <a href={link.href} aria-current={activePath === link.href ? 'page' : undefined}>{link.label}</a>
+                ))}
+              </nav>
+              <a class="btn btn-outline btn-sm" href="/lernpuls">Login</a>
+            </div>
+          )}
+        </header>
+      </div>
+    )}
+
+    <main>
+      <slot />
+    </main>
+
+    <div class="container">
+      <footer class="site-footer">
+        <span>© 2026 Groß Apps</span>
+        <nav>
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

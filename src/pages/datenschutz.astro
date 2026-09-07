@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Datenschutz – Groß Apps" description="Datenschutzerklärung von Groß Apps.">
+  <div class="container legal">
+    <h1>Datenschutzerklärung</h1>
+
+    <h2>1. Verantwortliche Person</h2>
+    <address>
+      Sophie Groß<br />
+      Bahnhofstraße 43<br />
+      46414 Rhede<br />
+      E-Mail: <a href="mailto:info@gross-apps.de">info@gross-apps.de</a>
+    </address>
+
+    <h2>2. Allgemeines zur Datenverarbeitung</h2>
+    <p>
+      Ich verarbeite personenbezogene Daten der Nutzer grundsätzlich nur, soweit dies
+      zur Bereitstellung einer funktionsfähigen Website sowie der Inhalte und Leistungen
+      erforderlich ist.
+    </p>
+
+    <h2>3. Hosting (Vercel)</h2>
+    <p>
+      Diese Website wird bei Vercel Inc., 340 Pine Street, Suite 701, San Francisco, CA 94104, USA
+      gehostet. Für Nutzer aus der EU werden Anfragen bevorzugt über den Vercel-Edge-Standort
+      <strong>Frankfurt am Main, Deutschland</strong> verarbeitet. Beim Aufrufen der Website werden
+      automatisch technische Zugriffsdaten (IP-Adresse, Datum und Uhrzeit, aufgerufene Seiten) durch
+      Vercel erfasst. Weitere Informationen:
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener">vercel.com/legal/privacy-policy</a>
+    </p>
+
+    <h2>4. Progressive Web Apps</h2>
+    <p>
+      Die bereitgestellten PWAs werden lokal im Browser des Nutzers ausgeführt.
+      Es werden keine Nutzerdaten an Server übertragen, sofern die App keine
+      explizite Server-Kommunikation vorsieht.
+    </p>
+
+    <h2>5. Cookies</h2>
+    <p>
+      Diese Website verwendet keine Tracking-Cookies. Technisch notwendige
+      Cookies oder Local Storage können durch die PWA-Funktionalität des Browsers
+      gesetzt werden.
+    </p>
+
+    <h2>6. Kontaktaufnahme per E-Mail</h2>
+    <p>
+      Wenn Sie mir eine E-Mail senden, wird Ihre E-Mail-Adresse und der Inhalt
+      Ihrer Nachricht zur Bearbeitung Ihrer Anfrage verarbeitet. Rechtsgrundlage
+      ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Daten werden nicht
+      an Dritte weitergegeben.
+    </p>
+
+    <h2>7. Ihre Rechte</h2>
+    <p>
+      Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO),
+      Löschung (Art. 17 DSGVO), Einschränkung (Art. 18 DSGVO) sowie
+      Widerspruch (Art. 21 DSGVO). Zur Ausübung Ihrer Rechte wenden Sie sich an:
+      <a href="mailto:info@gross-apps.de">info@gross-apps.de</a>
+    </p>
+
+    <h2>8. Beschwerderecht</h2>
+    <p>
+      Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren.
+      Die zuständige Behörde für Nordrhein-Westfalen ist die
+      Landesbeauftragte für Datenschutz und Informationsfreiheit NRW
+      (<a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>).
+    </p>
+
+    <hr />
+    <p class="stand">Platzhaltertext – wird durch die IT-Recht Kanzlei-Version ersetzt.</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal {
+    position: relative;
+    z-index: 1;
+    max-width: 68ch;
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-16);
+  }
+  .legal h1 { font-size: var(--text-3xl); margin-bottom: var(--space-8); }
+  .legal h2 { font-size: var(--text-lg); margin-top: var(--space-8); margin-bottom: var(--space-3); }
+  .legal p, .legal address { color: var(--text-muted); line-height: var(--lh-relaxed); font-style: normal; }
+  .legal a { color: var(--color-violet-light); }
+  .legal hr { border: none; border-top: 1px solid var(--border-default); margin: var(--space-8) 0; }
+  .legal .stand { font-size: var(--text-xs); color: var(--text-muted-2); }
+</style>
