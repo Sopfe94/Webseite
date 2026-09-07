@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Mission – Lernpuls"
+  description="Warum es Lernpuls gibt."
+  lpNav
+  activePath="/lp/mission"
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">MISSION</p>
+      <h1>Warum es <span class="accent">Lernpuls</span> gibt.</h1>
+    </header>
+
+    <div class="prose">
+      <p>
+        Ich hab Lernpuls gebaut, weil klassische Karteikarten-Apps für mich immer an einer Stelle
+        aufgehört haben: bei der Karte selbst. Was fehlte, war der Bezug zu dem, worauf ich eigentlich
+        lernen musste – die nächste Arbeit, die nächste Klausur.
+      </p>
+      <p>
+        Deshalb verknüpft Lernpuls Karteikarten direkt mit deinen anstehenden Arbeiten. Du trägst ein,
+        was ansteht, und bekommst gezielte Empfehlungen, welche Stapel sich gerade lohnen – statt
+        wahllos zu wiederholen.
+      </p>
+      <p>
+        Und weil Lernen selten allein am schönsten ist, gibt's den Learnspace: Lerngruppen, Freundschaften,
+        Chat. Gemeinsam dranbleiben funktioniert für die meisten besser als der stille Kampf allein am
+        Schreibtisch.
+      </p>
+      <p>
+        Lernpuls ist kein fertiges Produkt aus dem Lehrbuch, sondern wächst mit dem, was beim Nutzen
+        wirklich gebraucht wird. Ab September 2026 kommt eine Pro-Version dazu – die Grundfunktionen
+        bleiben kostenlos nutzbar.
+      </p>
+      <p class="signature">– Sophie</p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { position: relative; z-index: 1; padding: var(--space-10) 0 var(--space-8); max-width: 50ch; }
+  .page-head h1 { font-size: clamp(28px, 4vw, var(--text-3xl)); margin-top: var(--space-3); }
+
+  .prose {
+    position: relative;
+    z-index: 1;
+    max-width: 62ch;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding-bottom: var(--space-16);
+  }
+  .prose p { color: var(--text-muted); line-height: var(--lh-relaxed); font-size: var(--text-md); }
+  .prose .signature { color: var(--text-on-dark); font-weight: var(--fw-semibold); }
+</style>

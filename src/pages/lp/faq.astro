@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const faqs = [
+  {
+    q: 'Ist Lernpuls kostenlos?',
+    a: 'Ja. Alle aktuellen Funktionen – Karteikarten, Arbeiten/Lernempfehlungen und Learnspace – kannst du kostenlos nutzen.',
+  },
+  {
+    q: 'Kommt eine Pro-Version?',
+    a: 'Ja, ab September 2026. Details zu den Pro-Funktionen findest du, sobald sie feststehen, auf der Preise-Seite.',
+  },
+  {
+    q: 'Auf welchen Geräten läuft Lernpuls?',
+    a: 'Lernpuls ist eine Progressive Web App (PWA) und läuft auf iOS, Android, Tablet und Desktop – direkt im Browser oder als installierte App auf dem Homescreen.',
+  },
+  {
+    q: 'Muss ich etwas installieren?',
+    a: 'Nein, Lernpuls läuft direkt im Browser. Du kannst die App aber optional als PWA auf deinem Homescreen installieren, dann startet sie wie eine native App.',
+  },
+  {
+    q: 'Werden meine Daten getrackt?',
+    a: 'Nein. Lernpuls verwendet keine Tracking-Cookies. Details dazu findest du in der Datenschutzerklärung.',
+  },
+  {
+    q: 'Kann ich mit Freunden zusammen lernen?',
+    a: 'Ja, über den Learnspace: Freundschaften schließen, Lerngruppen gründen und im Chat austauschen.',
+  },
+];
+---
+<BaseLayout
+  title="FAQ – Lernpuls"
+  description="Häufig gestellte Fragen zu Lernpuls."
+  lpNav
+  activePath="/lp/faq"
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">FAQ</p>
+      <h1>Fragen &amp; <span class="accent">Antworten.</span></h1>
+    </header>
+
+    <div class="faq-list">
+      {faqs.map((item) => (
+        <details class="faq-item">
+          <summary>{item.q}</summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+
+    <p class="note">
+      Frage nicht dabei? Schreib mir direkt: <a href="mailto:info@gross-apps.de">info@gross-apps.de</a>
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { position: relative; z-index: 1; padding: var(--space-10) 0 var(--space-8); max-width: 50ch; }
+  .page-head h1 { font-size: clamp(28px, 4vw, var(--text-3xl)); margin-top: var(--space-3); }
+
+  .faq-list {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 68ch;
+    padding-bottom: var(--space-10);
+  }
+  .faq-item {
+    background: var(--color-midnight-surf);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    font-weight: var(--fw-semibold);
+    font-size: var(--text-base);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    color: var(--color-violet-light);
+    font-size: var(--text-lg);
+    margin-left: var(--space-4);
+    transition: transform var(--transition-base);
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item p {
+    margin-top: var(--space-3);
+    color: var(--text-muted);
+    line-height: var(--lh-relaxed);
+    font-size: var(--text-sm);
+  }
+
+  .note { position: relative; z-index: 1; padding-bottom: var(--space-16); font-size: var(--text-sm); color: var(--text-muted); }
+  .note a { color: var(--color-violet-light); }
+</style>

@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Kontakt – Lernpuls"
+  description="Kontakt zu Lernpuls / Groß Apps."
+  lpNav
+  activePath="/lp/kontakt"
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">KONTAKT</p>
+      <h1>Schreib mir <span class="accent">direkt.</span></h1>
+      <p class="lede">Feedback, Bug gefunden oder einfach eine Frage zu Lernpuls? Ich freu mich über jede Nachricht.</p>
+    </header>
+
+    <div class="card contact-card">
+      <p class="contact-label">E-Mail</p>
+      <a class="contact-email" href="mailto:info@gross-apps.de">info@gross-apps.de</a>
+      <a class="btn btn-primary btn-lg" href="mailto:info@gross-apps.de">E-Mail schreiben</a>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { position: relative; z-index: 1; padding: var(--space-10) 0 var(--space-8); max-width: 56ch; }
+  .page-head h1 { font-size: clamp(28px, 4vw, var(--text-3xl)); margin: var(--space-3) 0 var(--space-4); }
+  .page-head .lede { color: var(--text-muted); line-height: var(--lh-relaxed); }
+
+  .contact-card {
+    position: relative;
+    z-index: 1;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    align-items: flex-start;
+    margin-bottom: var(--space-16);
+  }
+  .contact-label { font-family: var(--font-mono); font-size: var(--text-xs); letter-spacing: var(--ls-wide); text-transform: uppercase; color: var(--text-muted-2); }
+  .contact-email { font-size: var(--text-lg); font-weight: var(--fw-semibold); color: var(--color-violet-light); text-decoration: none; }
+</style>

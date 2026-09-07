@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Lernpuls – Smart lernen"
+  description="Lernpuls: All-in-One Lernplattform für deine Karteikarten, Lernempfehlungen und Lerngruppen."
+  lpNav
+  activePath="/lp"
+>
+  <div class="container">
+    <header class="hero">
+      <p class="wordmark hero-word">Lern<span class="grad">puls</span></p>
+      <p class="slogan">Smart lernen</p>
+      <h1>Karteikarten, Lernempfehlungen und Lerngruppen <span class="accent">an einem Ort.</span></h1>
+      <p class="lede">
+        Lernpuls verbindet klassische Karteikarten mit Lernempfehlungen aus deinen Arbeiten
+        und einem Learnspace zum gemeinsamen Lernen mit Freunden.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" href="/lernpuls">Jetzt loslegen</a>
+        <a class="btn btn-outline btn-lg" href="/lp/funktionen">Alle Funktionen ansehen</a>
+      </div>
+    </header>
+
+    <section class="feature-grid">
+      <a class="card card-hover-glow feature-card" href="/lp/funktionen#karteikarten">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="14" height="10" rx="2" fill="url(#g1)"/><rect x="7" y="9" width="14" height="10" rx="2" fill="#0D0A1A" stroke="url(#g1)" stroke-width="1.4"/><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs></svg>
+        </span>
+        <h2>Karteikarten</h2>
+        <p>Stapel anlegen, Fortschritt live sehen – von "Angefangen" bis "Fast geschafft".</p>
+      </a>
+      <a class="card card-hover-glow feature-card" href="/lp/funktionen#arbeiten">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z" fill="url(#g2)"/><path d="M9 13h6M9 17h6" stroke="#0D0A1A" stroke-width="1.4" stroke-linecap="round"/><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs></svg>
+        </span>
+        <h2>Arbeiten &amp; Lernempfehlungen</h2>
+        <p>Klausuren und Arbeiten eintragen – Lernpuls schlägt vor, was du dir als Nächstes anschauen solltest.</p>
+      </a>
+      <a class="card card-hover-glow feature-card" href="/lp/funktionen#learnspace">
+        <span class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="9" cy="9" r="4" fill="url(#g3)"/><circle cx="16" cy="12" r="3.4" fill="#0D0A1A" stroke="url(#g3)" stroke-width="1.4"/><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs></svg>
+        </span>
+        <h2>Learnspace</h2>
+        <p>Freundschaften, Lerngruppen und Chat – lernen muss nicht allein passieren.</p>
+      </a>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .hero {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: var(--space-10) 0 var(--space-16);
+    max-width: 62ch;
+    margin: 0 auto;
+  }
+  .hero-word { font-size: var(--text-2xl); margin-bottom: var(--space-2); }
+  .slogan {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--ls-widest);
+    text-transform: uppercase;
+    color: var(--text-muted-subtitle);
+    margin-bottom: var(--space-6);
+  }
+  .hero h1 {
+    font-size: clamp(28px, 4.5vw, var(--text-4xl));
+    line-height: 1.1;
+    margin-bottom: var(--space-5);
+  }
+  .hero .lede {
+    font-size: var(--text-md);
+    color: var(--text-muted);
+    line-height: var(--lh-relaxed);
+    margin-bottom: var(--space-8);
+  }
+  .hero-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+
+  .feature-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+    padding-bottom: var(--space-20);
+  }
+  .feature-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: var(--space-3); }
+  .feature-icon {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-midnight-mid);
+    border: 1px solid rgba(124, 58, 237, 0.35);
+  }
+  .feature-icon svg { width: 22px; height: 22px; }
+  .feature-card h2 { font-size: var(--text-md); }
+  .feature-card p { font-size: var(--text-sm); color: var(--text-muted); line-height: var(--lh-normal); }
+</style>

@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Screenshots – Lernpuls"
+  description="Ein Blick auf die Oberfläche von Lernpuls."
+  lpNav
+  activePath="/lp/screenshots"
+>
+  <div class="container">
+    <header class="page-head">
+      <p class="eyebrow">EINBLICKE</p>
+      <h1>So fühlt sich <span class="accent">Lernpuls</span> an.</h1>
+      <p class="lede">Echte Screenshots folgen zum Launch – bis dahin ein Blick auf die UI-Bausteine, aus denen die App besteht.</p>
+    </header>
+
+    <section class="mock-grid">
+      <div class="card mock">
+        <span class="badge">Angefangen</span>
+        <p class="mock-title">Integralrechnung</p>
+        <div class="mock-progress"><div class="mock-progress-fill" style="width:28%"></div></div>
+        <p class="mock-meta">14 von 50 Karten</p>
+      </div>
+
+      <div class="card mock">
+        <span class="badge">Fast geschafft</span>
+        <p class="mock-title">Französisch Vokabeln</p>
+        <div class="mock-progress"><div class="mock-progress-fill" style="width:86%"></div></div>
+        <p class="mock-meta">43 von 50 Karten</p>
+      </div>
+
+      <div class="card mock mock-wide">
+        <p class="mock-title">Learnspace – Lerngruppe "Abi 2027"</p>
+        <div class="mock-chatline"><span class="mock-avatar">JM</span> Wer ist heute Abend online?</div>
+        <div class="mock-chatline"><span class="mock-avatar">SG</span> Ich ab 19 Uhr 🙋</div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head { position: relative; z-index: 1; padding: var(--space-10) 0 var(--space-8); max-width: 56ch; }
+  .page-head h1 { font-size: clamp(28px, 4vw, var(--text-3xl)); margin: var(--space-3) 0 var(--space-4); }
+  .page-head .lede { color: var(--text-muted); line-height: var(--lh-relaxed); }
+
+  .mock-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-6);
+    padding-bottom: var(--space-16);
+  }
+  .mock { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+  .mock-wide { grid-column: 1 / -1; }
+  .mock-title { font-weight: var(--fw-semibold); font-size: var(--text-base); }
+  .mock-progress { width: 100%; height: 6px; border-radius: var(--radius-full); background: rgba(255,255,255,0.08); overflow: hidden; }
+  .mock-progress-fill { height: 100%; background: var(--gradient-brand); border-radius: var(--radius-full); }
+  .mock-meta { font-size: var(--text-xs); color: var(--text-muted-2); font-family: var(--font-mono); }
+
+  .mock-chatline { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-sm); color: var(--text-muted); }
+  .mock-avatar {
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gradient-brand);
+    color: #fff; font-family: var(--font-mono); font-size: 10px; font-weight: var(--fw-bold);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+</style>
