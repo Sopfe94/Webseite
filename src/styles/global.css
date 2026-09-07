@@ -123,10 +123,13 @@ h1, h2, h3, h4 {
   letter-spacing: var(--ls-tight);
   line-height: var(--lh-snug);
   text-wrap: balance;
+  overflow-wrap: break-word;
   margin: 0;
 }
 
-p { margin: 0; }
+p { margin: 0; overflow-wrap: break-word; }
+
+img, svg { max-width: 100%; }
 a { color: inherit; }
 
 .container {
