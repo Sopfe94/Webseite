@@ -31,8 +31,62 @@ const lpLinks = [
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="icon" href="/images/lernpuls-icon.png" />
+
+    <!-- ── Site gate: run before paint to avoid content flash ── -->
+    <script is:inline>
+      (function () {
+        try {
+          if (localStorage.getItem('ga_site_unlocked') === '1') {
+            document.documentElement.classList.add('gate-unlocked');
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <style>
+      html:not(.gate-unlocked) body > *:not(#site-gate-overlay) {
+        display: none !important;
+      }
+    </style>
   </head>
   <body>
+    <div id="site-gate-overlay" class="site-gate-overlay">
+      <div class="site-gate-box">
+        <p class="eyebrow">GROSS APPS</p>
+        <h1 class="site-gate-title">Die Webseite ist im Aufbau.</h1>
+        <p class="site-gate-sub">Bitte Code eingeben, um fortzufahren.</p>
+        <input type="password" id="site-gate-input" class="site-gate-input" placeholder="Code" autocomplete="off" inputmode="numeric" />
+        <button class="btn btn-primary btn-lg site-gate-btn" id="site-gate-btn">Entsperren</button>
+        <p class="site-gate-error" id="site-gate-error"></p>
+      </div>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var CODE = '02041994';
+        function unlock() {
+          var input = document.getElementById('site-gate-input');
+          var error = document.getElementById('site-gate-error');
+          if (input.value === CODE) {
+            try { localStorage.setItem('ga_site_unlocked', '1'); } catch (e) {}
+            document.documentElement.classList.add('gate-unlocked');
+            error.textContent = '';
+          } else {
+            error.textContent = 'Falscher Code.';
+            input.value = '';
+            input.focus();
+          }
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+          var btn = document.getElementById('site-gate-btn');
+          var input = document.getElementById('site-gate-input');
+          if (btn) btn.addEventListener('click', unlock);
+          if (input) input.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') unlock();
+          });
+        });
+      })();
+    </script>
+
     <div class="glow-field"></div>
 
     {showBackHome && (
