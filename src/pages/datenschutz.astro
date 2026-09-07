@@ -81,7 +81,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding-top: var(--space-6);
     padding-bottom: var(--space-16);
   }
-  .legal h1 { font-size: var(--text-3xl); margin-bottom: var(--space-8); }
+  .legal h1 { font-size: clamp(28px, 8vw, var(--text-3xl)); margin-bottom: var(--space-8); }
   .legal h2 { font-size: var(--text-lg); margin-top: var(--space-8); margin-bottom: var(--space-3); }
   .legal p, .legal address { color: var(--text-muted); line-height: var(--lh-relaxed); font-style: normal; }
   .legal a { color: var(--color-violet-light); }
