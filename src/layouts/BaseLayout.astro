@@ -62,11 +62,19 @@ const lpLinks = [
 
     <script is:inline>
       (function () {
-        var CODE = '02041994';
-        function unlock() {
+        var CODE_HASH = 'b87a5db8584719141703f18d472cb63faff0e196afaa8fc1eaaa142652cfe37b';
+        async function sha256(text) {
+          var data = new TextEncoder().encode(text);
+          var digest = await crypto.subtle.digest('SHA-256', data);
+          return Array.from(new Uint8Array(digest)).map(function (b) {
+            return b.toString(16).padStart(2, '0');
+          }).join('');
+        }
+        async function unlock() {
           var input = document.getElementById('site-gate-input');
           var error = document.getElementById('site-gate-error');
-          if (input.value === CODE) {
+          var hash = await sha256(input.value);
+          if (hash === CODE_HASH) {
             try { localStorage.setItem('ga_site_unlocked', '1'); } catch (e) {}
             document.documentElement.classList.add('gate-unlocked');
             error.textContent = '';
