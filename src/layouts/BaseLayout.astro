@@ -106,14 +106,43 @@ const lpLinks = [
           </a>
           {lpNav && (
             <div class="site-header-right">
-              <nav class="site-nav" aria-label="Lernpuls Unterseiten">
+              <nav class="site-nav" id="site-nav" aria-label="Lernpuls Unterseiten">
                 {lpLinks.map((link) => (
                   <a href={link.href} aria-current={activePath === link.href ? 'page' : undefined}>{link.label}</a>
                 ))}
               </nav>
-              <a class="btn btn-outline btn-sm" href="/lernpuls">Login</a>
+              <a class="btn btn-outline btn-sm site-header-login" href="/lernpuls">Login</a>
+              <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
             </div>
           )}
+        </div>
+      </header>
+    )}
+    <script is:inline>
+      (function () {
+        document.addEventListener('DOMContentLoaded', function () {
+          var header = document.querySelector('.site-header');
+          var toggle = document.getElementById('nav-toggle');
+          if (!header || !toggle) return;
+          toggle.addEventListener('click', function () {
+            var open = header.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+          });
+          document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && header.classList.contains('nav-open')) {
+              header.classList.remove('nav-open');
+              toggle.setAttribute('aria-expanded', 'false');
+              toggle.setAttribute('aria-label', 'Menü öffnen');
+            }
+          });
+        });
+      })();
+    </script>
         </div>
       </header>
     )}
