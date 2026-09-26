@@ -36,21 +36,26 @@ const lpLinks = [
     <!-- ── Site gate: run before paint to avoid content flash ── -->
     <script is:inline>
       (function () {
+        var unlocked = false;
         try {
-          if (localStorage.getItem('ga_site_unlocked') === '1') {
-            document.documentElement.classList.add('gate-unlocked');
-          }
+          unlocked = localStorage.getItem('ga_site_unlocked') === '1';
         } catch (e) {}
+        if (unlocked) {
+          document.documentElement.classList.add('gate-unlocked');
+          document.addEventListener('DOMContentLoaded', function () {
+            document.body.classList.remove('gated');
+          });
+        }
       })();
     </script>
     <style>
-      html:not(.gate-unlocked) body > *:not(#site-gate-overlay) {
+      html:not(.gate-unlocked) body.gated > *:not(#site-gate-overlay) {
         display: none !important;
       }
     </style>
   </head>
-  <body>
-    <div id="site-gate-overlay" class="site-gate-overlay">
+  <body class="gated">
+    <div class="site-gate-overlay" id="site-gate-overlay">
       <div class="site-gate-box">
         <p class="eyebrow">GROSS APPS</p>
         <h1 class="site-gate-title">Die Webseite ist im Aufbau.</h1>
@@ -64,25 +69,50 @@ const lpLinks = [
     <script is:inline>
       (function () {
         var CODE_HASH = 'b87a5db8584719141703f18d472cb63faff0e196afaa8fc1eaaa142652cfe37b';
-        async function sha256(text) {
-          var data = new TextEncoder().encode(text);
-          var digest = await crypto.subtle.digest('SHA-256', data);
-          return Array.from(new Uint8Array(digest)).map(function (b) {
-            return b.toString(16).padStart(2, '0');
-          }).join('');
+        var FALLBACK_HASH = 604799945;
+        function simpleHash(text) {
+          var h = 0;
+          for (var i = 0; i < text.length; i++) {
+            h = ((h << 5) - h + text.charCodeAt(i)) | 0;
+          }
+          return h;
+        }
+        function normalize(text) {
+          return text.replace(/[^0-9]/g, '');
+        }
+        function setUnlocked() {
+          try { localStorage.setItem('ga_site_unlocked', '1'); } catch (e) {}
+          document.body.classList.remove('gated');
+          document.documentElement.classList.add('gate-unlocked');
         }
         async function unlock() {
           var input = document.getElementById('site-gate-input');
           var error = document.getElementById('site-gate-error');
-          var hash = await sha256(input.value);
-          if (hash === CODE_HASH) {
-            try { localStorage.setItem('ga_site_unlocked', '1'); } catch (e) {}
-            document.documentElement.classList.add('gate-unlocked');
-            error.textContent = '';
-          } else {
-            error.textContent = 'Falscher Code.';
-            input.value = '';
-            input.focus();
+          var value = normalize(input.value);
+          try {
+            if (!window.crypto || !window.crypto.subtle) throw new Error('no-subtle');
+            var data = new TextEncoder().encode(value);
+            var digest = await crypto.subtle.digest('SHA-256', data);
+            var hash = Array.from(new Uint8Array(digest)).map(function (b) {
+              return ('0' + b.toString(16)).slice(-2);
+            }).join('');
+            if (hash === CODE_HASH) {
+              setUnlocked();
+              error.textContent = '';
+            } else {
+              error.textContent = 'Falscher Code.';
+              input.value = '';
+              input.focus();
+            }
+          } catch (e) {
+            if (simpleHash(value) === FALLBACK_HASH) {
+              setUnlocked();
+              error.textContent = '';
+            } else {
+              error.textContent = 'Falscher Code.';
+              input.value = '';
+              input.focus();
+            }
           }
         }
         document.addEventListener('DOMContentLoaded', function () {
@@ -95,8 +125,6 @@ const lpLinks = [
         });
       })();
     </script>
-
-    <div class="glow-field"></div>
 
     {showBackHome && (
       <header class="site-header">
