@@ -1,19 +1,73 @@
 {
   "redirects": [
-    { "source": "/km", "destination": "/lernpuls", "permanent": true },
-    { "source": "/km/", "destination": "/lernpuls/", "permanent": true },
-    { "source": "/km/:path+", "destination": "/lernpuls/:path+", "permanent": true }
+    {
+      "source": "/km",
+      "destination": "/lernpuls",
+      "permanent": true
+    },
+    {
+      "source": "/km/",
+      "destination": "/lernpuls/",
+      "permanent": true
+    },
+    {
+      "source": "/km/:path+",
+      "destination": "/lernpuls/:path+",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/tb", "destination": "https://tankbuch-jet.vercel.app/" },
-    { "source": "/tb/", "destination": "https://tankbuch-jet.vercel.app/" },
-    { "source": "/tb/:path+", "destination": "https://tankbuch-jet.vercel.app/:path+" },
-    { "source": "/tb-beta", "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/" },
-    { "source": "/tb-beta/", "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/" },
-    { "source": "/tb-beta/:path+", "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/:path+" },
-    { "source": "/api/:path*", "destination": "https://tankbuch-jet.vercel.app/api/:path*" },
-    { "source": "/lernpuls", "destination": "https://karteikarten-manager.vercel.app/" },
-    { "source": "/lernpuls/", "destination": "https://karteikarten-manager.vercel.app/" },
-    { "source": "/lernpuls/:path+", "destination": "https://karteikarten-manager.vercel.app/:path+" }
+    {
+      "source": "/tb",
+      "destination": "https://tankbuch-jet.vercel.app/"
+    },
+    {
+      "source": "/tb/",
+      "destination": "https://tankbuch-jet.vercel.app/"
+    },
+    {
+      "source": "/tb/:path+",
+      "destination": "https://tankbuch-jet.vercel.app/:path+"
+    },
+    {
+      "source": "/tb-beta",
+      "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/"
+    },
+    {
+      "source": "/tb-beta/",
+      "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/"
+    },
+    {
+      "source": "/tb-beta/:path+",
+      "destination": "https://tankbuch-git-beta-sophie-grosss-projects.vercel.app/:path+"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://tankbuch-jet.vercel.app/api/:path*"
+    },
+    {
+      "source": "/lernpuls",
+      "destination": "https://karteikarten-manager.vercel.app/"
+    },
+    {
+      "source": "/lernpuls/",
+      "destination": "https://karteikarten-manager.vercel.app/"
+    },
+    {
+      "source": "/lernpuls/:path+",
+      "destination": "https://karteikarten-manager.vercel.app/:path+"
+    },
+    {
+      "source": "/quiz",
+      "destination": "https://bundestagswahl-quiz.vercel.app/"
+    },
+    {
+      "source": "/quiz/",
+      "destination": "https://bundestagswahl-quiz.vercel.app/"
+    },
+    {
+      "source": "/quiz/:path+",
+      "destination": "https://bundestagswahl-quiz.vercel.app/:path+"
+    }
   ]
 }
