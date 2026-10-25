@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/quiz",
+      "destination": "/quiz/",
+      "permanent": false
+    },
+    {
       "source": "/km",
       "destination": "/lernpuls",
       "permanent": true
